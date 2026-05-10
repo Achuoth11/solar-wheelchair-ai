@@ -1,0 +1,16 @@
+name: voice_env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+    - tensorflow
+    - opencv-python
+    - mediapipe
+    - pyaudio
+    - librosa
+    - numpy
+    - pyserial
+    - ai-edge-litert

@@ -1,0 +1,13 @@
+# Install these inside your conda environment:
+# conda create -n voice_env python=3.10 -y
+# conda activate voice_env
+# pip install -r requirements.txt
+
+tensorflow
+opencv-python
+mediapipe
+pyaudio
+librosa
+numpy
+pyserial
+ai-edge-litert
