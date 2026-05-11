@@ -3,7 +3,7 @@
 ![Python](https://img.shields.io/badge/Python-3.x-blue)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-Lite-orange)
 ![Arduino](https://img.shields.io/badge/Arduino-Uno-teal)
-![Raspberry Pi](https://img.shields.io/badge/Raspberry_Pi-4-red)
+![Raspberry Pi](https://img.shields.io/badge/Raspberry_Pi-5-red)
 ![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
 
 ## 📌 Overview
