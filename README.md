@@ -7,7 +7,7 @@
 ![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
 
 ## 📌 Overview
-An intelligent solar-powered wheelchair that uses AI to allow
+An intelligent solar-powered Smart wheelchair that uses AI to allow
 hands-free control through voice commands and hand gestures.
 Built and deployed on Raspberry Pi with real-time obstacle detection.
 
