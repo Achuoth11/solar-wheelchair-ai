@@ -4,7 +4,7 @@
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-Lite-orange)
 ![Arduino](https://img.shields.io/badge/Arduino-Uno-teal)
 ![Raspberry Pi](https://img.shields.io/badge/Raspberry_Pi-4-red)
-![Status](https://img.shields.io/badge/Status-Active-brightgreen)
+![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
 
 ## 📌 Overview
 An intelligent solar-powered wheelchair that uses AI to allow
