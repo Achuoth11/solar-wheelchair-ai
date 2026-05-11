@@ -19,6 +19,8 @@ Built and deployed on Raspberry Pi with real-time obstacle detection.
 - 🔒 **Thread-Safe** — voice and gesture run simultaneously without conflict
 - 🛑 **Safety First** — auto-stop on hand loss, timeout, or disconnection
 
+---
+
 ## 🛠️ Tech Stack
 | Layer | Technology |
 |---|---|
@@ -31,46 +33,7 @@ Built and deployed on Raspberry Pi with real-time obstacle detection.
 | Motors | Cytron Motor Driver |
 | Power | Solar Panel Integration |
 
-## 📁 Project Structure
-solar-wheelchair-ai/
-├── main_system1.py              # Master controller (runs on Raspberry Pi)
-├── requirements.txt             # Python dependencies
-├── voice_control/
-│   ├── voice_control_model.ipynb  # Voice model training notebook
-│   ├── voice_modelmodified.h5     # Trained Keras model
-│   └── voice_modelmodified.tflite # Deployed TFLite model
-├── gesture_control/
-│   ├── gesture_model_smartwheelchair.ipynb  # Gesture model training
-│   └── gesture_model_gru.tflite             # Deployed TFLite model
-└── obstacle_detection/
-└── Arduino_code.ino         # Arduino motor + sensor controller
-
-## ⚙️ How It Works
-1. **Voice thread** captures mic audio → Mel spectrogram → TFLite model → command
-2. **Gesture thread** reads Pi Camera → MediaPipe landmarks → GRU model → command
-3. **Sender thread** continuously sends the active command to Arduino every 150ms
-4. **Arduino** receives command → checks sensors → drives motors safely
-
-## 🚀 How to Run
-
-### 1. Install dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### 2. Upload Arduino code
-- Open `obstacle_detection/Arduino_code.ino` in Arduino IDE
-- Upload to Arduino Uno
-
-### 3. Connect hardware
-- Arduino via USB (`/dev/ttyUSB0` or `/dev/ttyACM0`)
-- Raspberry Pi Camera module
-- USB Microphone
-
-### 4. Run the system
-```bash
-python main_system1.py
-```
+---
 
 ## 🧠 AI Models
 
@@ -86,6 +49,16 @@ python main_system1.py
 - **Commands:** LEFT, RIGHT, FORWARD, BACKWARD, STOP
 - **Deployed as:** `.tflite` on Raspberry Pi
 
+---
+
+## ⚙️ How It Works
+1. **Voice thread** captures mic audio → Mel spectrogram → TFLite model → command
+2. **Gesture thread** reads Pi Camera → MediaPipe landmarks → GRU model → command
+3. **Sender thread** continuously sends the active command to Arduino every 150ms
+4. **Arduino** receives command → checks sensors → drives motors safely
+
+---
+
 ## 🔧 Hardware Wiring
 | Component | Pin |
 |---|---|
@@ -96,6 +69,83 @@ python main_system1.py
 | Motor 1 | PWM→5, DIR→8 |
 | Motor 2 | PWM→6, DIR→9 |
 | Joystick | VRX→A0, VRY→A1 |
+
+---
+
+## 📁 Project Structure
+```
+solar-wheelchair-ai/
+├── main_system1.py                         # Master controller (Raspberry Pi)
+├── requirements.txt                        # pip dependencies
+├── environment.yml                         # Conda environment (Raspberry Pi)
+├── voice_control/
+│   ├── voice_control_model.ipynb           # Voice model training notebook
+│   ├── voice_modelmodified.h5              # Trained Keras model
+│   └── voice_modelmodified.tflite          # Deployed TFLite model
+├── gesture_control/
+│   ├── gesture_model_smartwheelchair.ipynb # Gesture model training
+│   └── gesture_model_gru.tflite            # Deployed TFLite model
+├── obstacle_detection/
+│   └── Arduino_code.ino                    # Arduino motor + sensor controller
+└── docs/
+    ├── wheelchair.jpeg                     # Hardware photo 1
+    ├── wheelchair1.jpeg                    # Hardware photo 2
+    ├── Voice control.mp4                   # Voice control demo
+    ├── gesture control.mp4                 # Gesture control demo
+    └── Joystick control.mp4                # Joystick control demo
+```
+
+---
+
+## 🚀 How to Run
+
+### Setup (Raspberry Pi with Miniforge)
+```bash
+conda env create -f environment.yml
+conda activate voice_env
+python main_system1.py
+```
+
+### Connect Hardware
+```
+- Arduino via USB (/dev/ttyUSB0 or /dev/ttyACM0)
+- Raspberry Pi Camera module
+- USB Microphone
+```
+
+### Upload Arduino Code
+```
+- Open obstacle_detection/Arduino_code.ino in Arduino IDE
+- Upload to Arduino Uno
+```
+
+### Voice Commands
+Say: **Forward · Backward · Left · Right · Stop**
+
+### Gesture Commands
+Show hand to camera: **LEFT · RIGHT · FORWARD · BACKWARD · STOP**
+
+---
+
+## 📸 Hardware Demo
+
+| View 1 | View 2 |
+|---|---|
+| ![Wheelchair](docs/wheelchair.jpeg) | ![Wheelchair](docs/wheelchair1.jpeg) |
+
+> Real hardware prototype showing solar-powered wheelchair with
+> Raspberry Pi, camera module, and AI control system.
+
+---
+
+## 🎥 Demo Videos
+| Video | Description |
+|---|---|
+| [Voice control.mp4](docs/Voice%20control.mp4) | Voice command navigation demo |
+| [gesture control.mp4](docs/gesture%20control.mp4) | Hand gesture control demo |
+| [Joystick control.mp4](docs/Joystick%20control.mp4) | Manual joystick fallback demo |
+
+---
 
 ## 📄 Publication
 This project is part of ongoing research submitted to IEEE.
